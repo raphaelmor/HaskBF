@@ -5,8 +5,8 @@ import Text.Parsec.String
 
 import Data.AST
 
-parseBF :: String -> Either ParseError AST
-parseBF source = parse fullProgram "source" source
+parseBF :: String -> String -> Either ParseError AST
+parseBF source filename = parse fullProgram filename source
 
 fullProgram :: Parser AST
 fullProgram = program <* eof

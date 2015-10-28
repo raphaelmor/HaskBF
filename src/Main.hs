@@ -10,7 +10,7 @@ main = do
         filePath <- execParser (parseFile `withInfo` "Interpret a Brainfuck file")
         fileHandle <- openFile filePath ReadMode
         contents <- hGetContents fileHandle
-        runBF contents
+        runBF contents filePath
 
 withInfo :: Parser a -> String -> ParserInfo a
 withInfo opts desc = info (helper <*> opts) $ progDesc desc
