@@ -24,7 +24,7 @@ interpretAST :: AST -> Interpreter
 interpretAST = traverse_ interpretInstruction
 
 interpretInstruction :: Instruction -> Interpreter
-interpretInstruction MoveLeft  = modify moveLeft
+interpretInstruction MoveLeft   = modify moveLeft
 interpretInstruction MoveRight  = modify moveRight
 interpretInstruction Increment  = modify increment
 interpretInstruction Decrement  = modify decrement
@@ -34,4 +34,4 @@ interpretInstruction GetByte    = do char <- liftIO getChar
                                      modify (Data.Tape.writeChar char)
 
 interpretInstruction loop@(Loop ast) = do tape <- get
-                                          unless ((Data.Tape.read tape) == 0) (interpretAST ast >> interpretInstruction loop)
+                                          unless (Data.Tape.read tape == 0) (interpretAST ast >> interpretInstruction loop)

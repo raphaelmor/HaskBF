@@ -10,4 +10,3 @@ data Instruction = MoveLeft           -- '<'
                  deriving (Show)
 
 type AST = [Instruction]
-

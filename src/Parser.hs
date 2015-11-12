@@ -38,6 +38,3 @@ comment = noneOf "<>+-.,[]"
 
 validOperationChar :: Parser Char
 validOperationChar = oneOf "<>+-.,"
-
-
-

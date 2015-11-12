@@ -35,4 +35,3 @@ write x (Tape ls _ rs) = Tape ls x rs
 
 writeChar :: Char -> Tape -> Tape
 writeChar c = Data.Tape.write $ ord c
-
