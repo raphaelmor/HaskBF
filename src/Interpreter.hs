@@ -15,7 +15,7 @@ type Interpreter = StateT Tape IO ()
 runBF :: String -> String -> IO ()
 runBF source filename = case parseBF source filename of
                           Left err  -> putStrLn ("Syntax error: " ++ show err)
-                          Right ast -> interpretBF ast >> putStrLn ""
+                          Right ast -> interpretBF ast
 
 interpretBF :: AST -> IO ()
 interpretBF ast = evalStateT (interpretAST ast) emptyTape
